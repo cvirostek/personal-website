@@ -9,6 +9,9 @@ import { Link as RouterLink } from 'react-router-dom';
 const useStyles = makeStyles((theme: Theme) => ({
     toolbarItem: {
         marginRight: theme.spacing(2)
+    },
+    header: {
+        zIndex: 999
     }
 }));
 
@@ -16,7 +19,7 @@ const Header: React.FC = () => {
     const classes = useStyles();
 
     return (
-        <header>
+        <header className={classes.header}>
             <AppBar position='static' color='inherit'>
                 <Toolbar>
                     <Avatar className={classes.toolbarItem}>CV</Avatar>
