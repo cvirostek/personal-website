@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './common/Header';
 import Footer from './common/Footer';
+import { BrowserRouter as Router} from 'react-router-dom';
 import AppRouter from './AppRouter';
 import { createMuiTheme, MuiThemeProvider, makeStyles, Theme } from '@material-ui/core/styles';
 import { CssBaseline } from '@material-ui/core';
@@ -26,11 +27,13 @@ const App: React.FC = () => {
         <MuiThemeProvider theme={darkTheme}>
             <div className={classes.app}>
                 <CssBaseline />
-                <Header />
-                <main>
-                    <AppRouter/>
-                </main>
-                <Footer />
+                <Router>
+                    <Header />
+                    <main>
+                        <AppRouter/>
+                    </main>
+                    <Footer />
+                </Router>
             </div>
         </MuiThemeProvider>
     );

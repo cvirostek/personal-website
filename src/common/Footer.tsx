@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Theme, Typography, makeStyles, Link } from '@material-ui/core';
+import { Link as RouterLink } from 'react-router-dom';
 
 const useStyles = makeStyles((theme: Theme) => ({
     footer: {
@@ -23,6 +24,10 @@ const Footer: React.FC = () => {
                 Personal website of Connor Virostek
             </Typography>
             <Typography variant='body2' color='textSecondary' align='center'>
+                <Link className={classes.profileLink} color='inherit' component={RouterLink} to='/about'>
+                    About
+                </Link>
+                |
                 <Link className={classes.profileLink} color='inherit' href='https://www.linkedin.com/in/connor-virostek/'>
                     LinkedIn
                 </Link>
