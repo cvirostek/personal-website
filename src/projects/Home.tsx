@@ -1,7 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/styles';
-import { Theme, Container, Typography } from '@material-ui/core';
+import { Theme, Container, Typography, Grid } from '@material-ui/core';
 import Dot from './dot.svg';
+import cards from './cards';
 
 const useStyles = makeStyles((theme: Theme) => ({
     heroContent: {
@@ -19,6 +20,9 @@ const useStyles = makeStyles((theme: Theme) => ({
             width: '100%',
             height: '100%'
         }
+    },
+    cardGrid: {
+        padding: theme.spacing(4)
     }
 }));
 
@@ -37,6 +41,15 @@ const Home: React.FC = () => {
                         enjoyed working on for school or in my free time.
                     </Typography>
                 </Container>
+            </div>
+            <div className={classes.cardGrid}>
+                <Grid container spacing={4}>
+                    {cards.map(card => (
+                        <Grid item xs={12} sm={6} md={4} lg={3} xl={2}>
+                            {React.createElement(card)}
+                        </Grid>
+                    ))}
+                </Grid>
             </div>
         </div>
     );
