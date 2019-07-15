@@ -22,7 +22,13 @@ const useStyles = makeStyles((theme: Theme) => ({
         }
     },
     cardGrid: {
-        padding: theme.spacing(4)
+        padding: theme.spacing(4),
+        '& .project-card, .project-card-action': {
+            height: '100%'
+        },
+        '& .project-card-media': {
+            paddingTop: '56.25%',
+        }
     }
 }));
 

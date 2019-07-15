@@ -1,23 +1,23 @@
 import React from 'react';
 import { Card, CardMedia, Typography, CardContent, CardActionArea } from '@material-ui/core';
-import Thumb from './thumb.png';
+import Thumb from './thumb.jpg';
 
-const HuluCard: React.FC = () => {
+const CPE471Card: React.FC = () => {
     return (
         <Card className='project-card'>
             <CardActionArea
                 className='project-card-action'
-                href='https://chrome.google.com/webstore/detail/hulu-ad-blocker/edbgmecmoefpnbkhgenlpijpjpnapenm'>
+                href='http://users.csc.calpoly.edu/~zwood/teaching/csc471/finalW19/cviroste'>
                 <CardMedia
                     className='project-card-media'
                     image={Thumb}/>
                 <CardContent color='default'>
                     <Typography gutterBottom variant='h6'>
-                        Hulu Ad Blocker
+                        3D Sidescroller
                     </Typography>
                     <Typography variant='body2' color='textSecondary'>
-                        A Google Chrome extension which bypasses Hulu's
-                        ad blocker detection to skip video ads.
+                        My final project for Intro to Computer Graphics.
+                        Made using C++ and OpenGL.
                     </Typography>
                 </CardContent>
             </CardActionArea>
@@ -25,4 +25,4 @@ const HuluCard: React.FC = () => {
     );
 }
 
-export default HuluCard;
+export default CPE471Card;

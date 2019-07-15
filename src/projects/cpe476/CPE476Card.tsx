@@ -2,22 +2,22 @@ import React from 'react';
 import { Card, CardMedia, Typography, CardContent, CardActionArea } from '@material-ui/core';
 import Thumb from './thumb.png';
 
-const HuluCard: React.FC = () => {
+const CPE476Card: React.FC = () => {
     return (
         <Card className='project-card'>
             <CardActionArea
                 className='project-card-action'
-                href='https://chrome.google.com/webstore/detail/hulu-ad-blocker/edbgmecmoefpnbkhgenlpijpjpnapenm'>
+                href='http://users.csc.calpoly.edu/~zwood/teaching/csc476/final19/Curve/'>
                 <CardMedia
                     className='project-card-media'
                     image={Thumb}/>
                 <CardContent color='default'>
                     <Typography gutterBottom variant='h6'>
-                        Hulu Ad Blocker
+                        Marble Game
                     </Typography>
                     <Typography variant='body2' color='textSecondary'>
-                        A Google Chrome extension which bypasses Hulu's
-                        ad blocker detection to skip video ads.
+                        My final project for Real-Time 3D Comp Graphics Software.
+                        Made using C++ and OpenGL.
                     </Typography>
                 </CardContent>
             </CardActionArea>
@@ -25,4 +25,4 @@ const HuluCard: React.FC = () => {
     );
 }
 
-export default HuluCard;
+export default CPE476Card;
