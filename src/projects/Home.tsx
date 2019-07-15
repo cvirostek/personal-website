@@ -1,8 +1,10 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/styles';
-import { Theme, Container, Typography, Grid } from '@material-ui/core';
+import { Theme, Container, Typography, Grid, Card, CardActionArea, CardMedia, CardContent } from '@material-ui/core';
 import Dot from './dot.svg';
 import cards from './cards';
+import { Link as RouterLink } from 'react-router-dom';
+import ConditionalWrap from '../util/ConditionalWrap';
 
 const useStyles = makeStyles((theme: Theme) => ({
     heroContent: {
@@ -22,13 +24,16 @@ const useStyles = makeStyles((theme: Theme) => ({
         }
     },
     cardGrid: {
-        padding: theme.spacing(4),
-        '& .project-card, .project-card-action': {
-            height: '100%'
-        },
-        '& .project-card-media': {
-            paddingTop: '56.25%',
-        }
+        padding: theme.spacing(4)
+    },
+    card: {
+        height: '100%'
+    },
+    cardAction: {
+        height: '100%'
+    },
+    cardMedia: {
+        paddingTop: '56.25%'
     }
 }));
 
@@ -52,7 +57,30 @@ const Home: React.FC = () => {
                 <Grid container spacing={4}>
                     {cards.map(card => (
                         <Grid item xs={12} sm={6} md={4} lg={3} xl={2}>
-                            {React.createElement(card)}
+                            <Card className={classes.card}>
+                                <ConditionalWrap
+                                    condition={card.url !== undefined || card.route !== undefined}
+                                    wrap={children => (
+                                        <CardActionArea
+                                            className={classes.cardAction}
+                                            {...(card.url ? {href: card.url} : {})}
+                                            {...(card.route ? {to: card.route, component: RouterLink} : {})}
+                                        >{children}</CardActionArea>
+                                    )}
+                                >
+                                    <CardMedia
+                                        className={classes.cardMedia}
+                                        image={card.thumb}/>
+                                    <CardContent color='default'>
+                                        <Typography gutterBottom variant='h6'>
+                                            {card.title}
+                                        </Typography>
+                                        <Typography variant='body2' color='textSecondary'>
+                                            {card.body}
+                                        </Typography>
+                                    </CardContent>
+                                </ConditionalWrap>
+                            </Card>
                         </Grid>
                     ))}
                 </Grid>
