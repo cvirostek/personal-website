@@ -4,7 +4,6 @@ import { Theme, Container, Typography, Grid, Card, CardActionArea, CardMedia, Ca
 import Dot from './dot.svg';
 import cards from './cards';
 import { Link as RouterLink } from 'react-router-dom';
-import ConditionalWrap from '../util/ConditionalWrap';
 
 const useStyles = makeStyles((theme: Theme) => ({
     heroContent: {
@@ -33,7 +32,8 @@ const useStyles = makeStyles((theme: Theme) => ({
         height: '100%'
     },
     cardMedia: {
-        paddingTop: '56.25%'
+        paddingTop: '56.25%',
+        backgroundColor: theme.palette.grey['900']
     }
 }));
 
@@ -58,28 +58,36 @@ const Home: React.FC = () => {
                     {cards.map(card => (
                         <Grid item xs={12} sm={6} md={4} lg={3} xl={2}>
                             <Card className={classes.card}>
-                                <ConditionalWrap
-                                    condition={card.url !== undefined || card.route !== undefined}
-                                    wrap={children => (
-                                        <CardActionArea
-                                            className={classes.cardAction}
-                                            {...(card.url ? {href: card.url} : {})}
-                                            {...(card.route ? {to: card.route, component: RouterLink} : {})}
-                                        >{children}</CardActionArea>
-                                    )}
+                                <CardActionArea
+                                    className={classes.cardAction}
+                                    disableRipple
+                                    {...(() => {
+                                        if (card.url !== undefined) {
+                                            return {href: card.url};
+                                        }
+                                        else if (card.route !== undefined) {
+                                            return {to: card.route, component: RouterLink};
+                                        }
+                                        else {
+                                            // Workaround: formatting gets messed up if there's no 'href' or 'to',
+                                            // so add a dummy 'href'
+                                            return {href: '/', disabled: true, style: {cursor: 'not-allowed'}};
+                                        }
+                                    })()}
                                 >
                                     <CardMedia
                                         className={classes.cardMedia}
-                                        image={card.thumb}/>
-                                    <CardContent color='default'>
+                                        image={card.thumb}
+                                    />
+                                    <CardContent>
                                         <Typography gutterBottom variant='h6'>
                                             {card.title}
                                         </Typography>
                                         <Typography variant='body2' color='textSecondary'>
                                             {card.body}
                                         </Typography>
-                                    </CardContent>
-                                </ConditionalWrap>
+                                    </CardContent> 
+                                </CardActionArea>
                             </Card>
                         </Grid>
                     ))}
