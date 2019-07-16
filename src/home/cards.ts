@@ -34,7 +34,7 @@ const cards: ProjectCardData[] = [
     {
         title: 'the-real-connor.me',
         body: 'This website was built with React, and is hosted on my VPS via Nginx.',
-        route: '/',
+        url: 'https://github.com/cvirostek/personal-website',
         thumb: require('./thumbs/mywebsite.png')
     },
     {
