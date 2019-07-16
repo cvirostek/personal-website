@@ -23,7 +23,7 @@ const cards: ProjectCardData[] = [
         title: 'Hulu Ad Blocker',
         body: 'A Google Chrome extension which bypasses Hulu\'s ad blocker detection to skip video ads.',
         url: 'https://chrome.google.com/webstore/detail/hulu-ad-blocker/edbgmecmoefpnbkhgenlpijpjpnapenm',
-        thumb: require('./thumbs/hulu.png')
+        thumb: require('./thumbs/hulu.svg')
     },
     {
         title: 'GroupMe Bot',
