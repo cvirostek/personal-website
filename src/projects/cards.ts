@@ -35,7 +35,7 @@ const cards: ProjectCardData[] = [
         title: 'the-real-connor.me',
         body: 'This website was built with React, and is hosted on my VPS via Nginx.',
         route: '/',
-        thumb: require('./thumbs/react.svg')
+        thumb: require('./thumbs/mywebsite.png')
     },
     {
         title: 'Bike Shop Website',
