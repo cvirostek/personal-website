@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
-import Home from './projects/Home';
+import Home from './home/Home';
 import NotFound from './errors/NotFound';
 import NotImplemented from './errors/NotImplemented';
 
