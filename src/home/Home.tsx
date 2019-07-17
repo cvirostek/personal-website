@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
     cardMedia: {
         paddingTop: '56.25%',
-        backgroundColor: theme.palette.grey['900']
+        backgroundColor: theme.palette.background.level1
     }
 }));
 

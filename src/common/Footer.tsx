@@ -7,7 +7,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     footer: {
         padding: theme.spacing(2),
         marginTop: 'auto',
-        backgroundColor: theme.palette.background.paper
+        backgroundColor: theme.palette.background.level1
     },
     profileLink: {
         marginLeft: theme.spacing(1),

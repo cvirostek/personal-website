@@ -4,7 +4,7 @@ import Home from './home/Home';
 import NotFound from './errors/NotFound';
 import About from './about/About'
 
-const AppRouter: React.FC = () => {
+const AppRoutes: React.FC = () => {
     return (
         <Switch>
             <Route exact path='/' component={Home} />
@@ -15,4 +15,4 @@ const AppRouter: React.FC = () => {
     );
 }
 
-export default AppRouter;
+export default AppRoutes;

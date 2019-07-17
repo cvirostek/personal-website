@@ -2,15 +2,28 @@ import React from 'react';
 import Header from './common/Header';
 import Footer from './common/Footer';
 import { BrowserRouter as Router} from 'react-router-dom';
-import AppRouter from './AppRouter';
-import { createMuiTheme, MuiThemeProvider, makeStyles, Theme } from '@material-ui/core/styles';
+import AppRoutes from './AppRoutes';
+import { MuiThemeProvider, makeStyles, Theme } from '@material-ui/core/styles';
 import { CssBaseline } from '@material-ui/core';
+import { grey } from '@material-ui/core/colors';
+import createMyTheme from './util/createMyTheme';
 
-const darkTheme = createMuiTheme({
+const darkTheme = createMyTheme({
     palette: {
-        type: 'dark'
+        type: 'dark',
+        background: {
+            default: grey['900']
+        }
     }
 });
+
+/*
+const lightTheme = createMyTheme({
+    palette: {
+        type: 'light'
+    }
+});
+*/
 
 const useStyles = makeStyles((theme: Theme) => ({
     app: {
@@ -30,7 +43,7 @@ const App: React.FC = () => {
                 <Router>
                     <Header />
                     <main>
-                        <AppRouter/>
+                        <AppRoutes />
                     </main>
                     <Footer />
                 </Router>
