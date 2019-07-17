@@ -10,6 +10,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     toolbarItem: {
         marginRight: theme.spacing(2)
     },
+    toolbar: {
+        backgroundColor: theme.palette.background.level1
+    },
     header: {
         zIndex: 999
     }
@@ -21,7 +24,7 @@ const Header: React.FC = () => {
     return (
         <header className={classes.header}>
             <AppBar position='static' color='inherit'>
-                <Toolbar>
+                <Toolbar className={classes.toolbar}>
                     <Avatar className={classes.toolbarItem}>CV</Avatar>
                     <Button className={classes.toolbarItem} component={RouterLink} to='/'>
                         Home
